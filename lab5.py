@@ -14,17 +14,17 @@ class Country:
     code = None
     population = None
     area = None
-    GPD = None
+    gpd = None
     govern = None #type of Goverment
 
-    def __init__(self, name, capital, code, population, area, GPD, govern):
+    def __init__(self, name, capital, code, population, area, gpd, govern):
         #population in a million, area in km^2, gpd in a billion
         self.name = name
         self.capital = capital
         self.code = code
         self.population = population
         self.area = area
-        self.GPD = GPD
+        self.gpd = gpd
         self.govern = govern
 
 
@@ -44,7 +44,7 @@ def density(countries):
     print()
 
 def sort_countries_by_gdp(countries):
-    sorted_countries = sorted(countries, key=lambda country: country.GPD, reverse=True)
+    sorted_countries = sorted(countries, key=lambda country: country.gpd, reverse=True)
     return sorted_countries
 
 
@@ -73,7 +73,7 @@ density(countries)
 sorted_countries = sort_countries_by_gdp(countries)
 
 for i, country in enumerate(sorted_countries, 1):
-    print(f"{i}. Country: {country.name}, GDP: {country.GPD}")
+    print(f"{i}. Country: {country.name}, GDP: {country.gpd}")
 print()
 
 selected_criteria = lambda country: len(country.name) > 5
