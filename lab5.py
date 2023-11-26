@@ -62,23 +62,22 @@ land2 = Land("Europe")
 land3 = Land("Africa")
 land4 = Land("America")
 
-land1.add_country(country4)
-land2.add_country(country1)
-land3.add_country(country3)
-land4.add_country(country2)
+lands = [land1, land2, land3, land4]
+countries = [country4, country1, country3, country2]
 
-countries_for_density = [country1, country2, country3, country4]
+for i in range(len(lands)):
+    lands[i].add_country(countries[i])
 
-density(countries_for_density)
+density(countries)
 
-sorted_countries = sort_countries_by_gdp(countries_for_density)
+sorted_countries = sort_countries_by_gdp(countries)
 
 for i, country in enumerate(sorted_countries, 1):
     print(f"{i}. Country: {country.name}, GDP: {country.GPD}")
 print()
 
 selected_criteria = lambda country: len(country.name) > 5
-selected_countries = selected_countries(countries_for_density, selected_criteria)
+selected_countries = selected_countries(countries, selected_criteria)
 
 for i, country in enumerate(selected_countries, 1):
     print(f"{i}. Selected country: {country.name}")
